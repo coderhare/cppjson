@@ -49,11 +49,11 @@ namespace JSON{
 
         /** get functions**/
         JSON_TYPE get_type() const{return type;}
-        string & get_string();
-        double get_number();
-        arr & get_arr();
-        mem & get_mem();
-        bool get_bool();
+        const string & get_string() const;
+        double get_number() const;
+        const arr & get_arr() const;
+        const mem & get_mem() const;
+        bool get_bool() const;
 
         /** set functions **/
         void set_string(string & s);
@@ -101,10 +101,10 @@ namespace JSON{
         /** get_value functions **/
 
         bool get_bool() const;
-        string & get_string() const;
+        const string & get_string() const;
         double get_number() const;
-        arr & get_arr() const;
-        mem & get_mem() const;
+        const arr & get_arr() const;
+        const mem & get_mem() const;
 
         /** set_value functions **/
         void set_string(string & s);

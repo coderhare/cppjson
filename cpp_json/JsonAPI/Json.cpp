@@ -28,10 +28,8 @@ namespace JSON{
 
     json & json::operator=(const json & rhs) noexcept{
         if(rhs == *this) return *this; //avoid self-assignment
-        puts("++");
         json tmp(rhs);
         json_ptr.swap(tmp.json_ptr);
-        puts("--");
         return *this;
     }
 
@@ -82,16 +80,16 @@ namespace JSON{
     }
 
 
-    string & json::get_string() const{
+    const string & json::get_string() const{
         return json_ptr->get_string();
     }
     double json::get_number() const{
         return json_ptr->get_number();
     }
-    arr & json::get_arr() const{
+    const arr & json::get_arr() const{
         return json_ptr->get_arr();
     }
-    mem & json::get_mem() const{
+    const mem & json::get_mem() const{
         return json_ptr->get_mem();
     }
     bool json::get_bool() const{
@@ -141,7 +139,7 @@ namespace JSON{
     /** copy operators of Json_value **/
     Json_value::Json_value(): type(JSON::JSON_NULL){}
     Json_value::Json_value(double n): var(n), type(JSON::JSON_NUMBER){}
-    Json_value::Json_value(const string & s): var(s), type(JSON::JSON_STRING){puts("copy");}
+    Json_value::Json_value(const string & s): var(s), type(JSON::JSON_STRING){}
     Json_value::Json_value(bool b):var(b){
         if(!b) type = JSON_FALSE;
         else type = JSON_TRUE;
@@ -200,30 +198,30 @@ namespace JSON{
         return !(*this == rhs);
     }
 
-    Json_value::Json_value(string && s) noexcept: var(std::move(s)) , type(JSON::JSON_STRING){puts("move");}
+    Json_value::Json_value(string && s) noexcept: var(std::move(s)) , type(JSON::JSON_STRING){}
     Json_value::Json_value(mem && m) noexcept: var(m), type(JSON::JSON_OBJECT){}
     Json_value::Json_value(arr && a) noexcept: var(a), type(JSON::JSON_ARRAY){}
 
 
-    string & Json_value::get_string(){
+    const string & Json_value::get_string() const{
         assert(type == JSON_STRING);
         return std::get<string>(this->var);
     }
 
-    double Json_value::get_number(){
+    double Json_value::get_number() const{
         assert(type == JSON_NUMBER);
         return std::get<double>(this->var);
     }
-    arr & Json_value::get_arr(){
+    const arr & Json_value::get_arr() const{
         assert(type == JSON_ARRAY);
         return std::get<arr>(this->var);
     }
-    mem & Json_value::get_mem(){
+    const mem & Json_value::get_mem() const{
         assert(type == JSON_OBJECT);
         return std::get<mem>(this->var);
     }
 
-    bool Json_value::get_bool(){
+    bool Json_value::get_bool() const{
         assert(type == JSON_TRUE || type == JSON_FALSE);
         return type == JSON_TRUE;
     }
