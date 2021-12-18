@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/Users/wocaibujiaoquanmei/iCloud 云盘（归档）/GitHub/cppjson/cpp_json/JsonAPI/Json.cpp
-Json.h
-/Users/wocaibujiaoquanmei/iCloud 云盘（归档）/GitHub/cppjson/cpp_json/JsonAPI/Json.h
-
 /Users/wocaibujiaoquanmei/iCloud 云盘（归档）/GitHub/cppjson/cpp_json/JsonAPI/Json.h
 iostream
 -
@@ -25,4 +21,26 @@ memory
 -
 cerrno
 -
+
+/Users/wocaibujiaoquanmei/iCloud 云盘（归档）/GitHub/cppjson/cpp_json/JsonAPI/Jsonparser.h
+stack.h
+/Users/wocaibujiaoquanmei/iCloud 云盘（归档）/GitHub/cppjson/cpp_json/JsonAPI/stack.h
+Json.h
+/Users/wocaibujiaoquanmei/iCloud 云盘（归档）/GitHub/cppjson/cpp_json/JsonAPI/Json.h
+
+/Users/wocaibujiaoquanmei/iCloud 云盘（归档）/GitHub/cppjson/cpp_json/JsonAPI/Jsonstringifier.h
+stack.h
+/Users/wocaibujiaoquanmei/iCloud 云盘（归档）/GitHub/cppjson/cpp_json/JsonAPI/stack.h
+Json.h
+/Users/wocaibujiaoquanmei/iCloud 云盘（归档）/GitHub/cppjson/cpp_json/JsonAPI/Json.h
+
+/Users/wocaibujiaoquanmei/iCloud 云盘（归档）/GitHub/cppjson/cpp_json/JsonAPI/stack.h
+Json.h
+/Users/wocaibujiaoquanmei/iCloud 云盘（归档）/GitHub/cppjson/cpp_json/JsonAPI/Json.h
+
+/Users/wocaibujiaoquanmei/iCloud 云盘（归档）/GitHub/cppjson/cpp_json/main.cpp
+JsonAPI/Jsonparser.h
+/Users/wocaibujiaoquanmei/iCloud 云盘（归档）/GitHub/cppjson/cpp_json/JsonAPI/Jsonparser.h
+JsonAPI/Jsonstringifier.h
+/Users/wocaibujiaoquanmei/iCloud 云盘（归档）/GitHub/cppjson/cpp_json/JsonAPI/Jsonstringifier.h
 

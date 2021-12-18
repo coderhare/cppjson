@@ -41,7 +41,7 @@ constexpr int PARSER_STACK_INIT_SIZE = 256;
     private:
         PARSE_RESULT parse_literal(const char * literal, JSON::JSON_TYPE type);
 
-        PARSE_RESULT parse_string_raw(char ** str, size_t & len);
+        PARSE_RESULT parse_string_raw(string & s);
 
         PARSE_RESULT parse_string();
 

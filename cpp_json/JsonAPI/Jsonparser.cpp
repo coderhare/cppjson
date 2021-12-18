@@ -84,7 +84,7 @@ namespace Jsonparser{
         }
     }
 
-    PARSE_RESULT parser::parse_string_raw(char **str, size_t &len) {
+    PARSE_RESULT parser::parse_string_raw(string & s) {
         size_t head = this->stk.top;
         unsigned u, u2;
         stk.expect('\"');
@@ -92,8 +92,9 @@ namespace Jsonparser{
             char ch = *stk.json++;
             switch(ch){
                 case '\"':{
-                    len = this->stk.top - head;
-                    *str = (char*)stk.pop(len);
+                    size_t len = this->stk.top - head;
+                    char * p = (char *)stk.pop(len);
+                    while(len--) s += *p++;
                     return PARSE_OK;
                 }
                 case '\\':
@@ -140,9 +141,8 @@ namespace Jsonparser{
 
     PARSE_RESULT parser::parse_string(){
         PARSE_RESULT ret;
-        char * s;
-        size_t len;
-        if((ret = parse_string_raw(&s, len)) == PARSE_OK) {
+        string s;
+        if((ret = parse_string_raw(s)) == PARSE_OK) {
             j.set_string(s);
         }
         return ret;
@@ -216,13 +216,12 @@ namespace Jsonparser{
         }
         while(true){
             if(*stk.json != '\"') return PARSE_MISS_KEY;
-            char * str;
-            size_t len;
-            if((ret = parse_string_raw(&str, len)) != PARSE_OK)
+            string s;
+            if((ret = parse_string_raw(s)) != PARSE_OK)
                 return ret;
             //we parse key and value and then we make_pair
             stk.parse_whitespace();
-            string key(str, len);
+            string key(s);
             if(*stk.json != ':') return PARSE_MISS_COLON;
             stk.json++;
             stk.parse_whitespace();
