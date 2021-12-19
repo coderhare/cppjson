@@ -76,6 +76,7 @@ namespace JSON{
             case JSON_FALSE: return "boolean";
             case JSON_ARRAY: return "array";
             case JSON_OBJECT: return "object";
+            case JSON_NUMBER: return "number";
         }
     }
 

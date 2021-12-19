@@ -148,6 +148,7 @@ namespace Jsonparser{
         return ret;
     }
     PARSE_RESULT parser::parse_number(){
+        const char * p = this->stk.json, *q;
         if(*this->stk.json == '-') this->stk.json++;
         if(*this->stk.json == '0') this->stk.json++;
         else{
@@ -167,7 +168,10 @@ namespace Jsonparser{
         }
         errno = 0;
         j.set_null();
-        j.set_number(strtod(this->stk.json, nullptr));
+        q = stk.json;
+        stk.json = p;
+        j.set_number(std::stod(stk.json));
+        stk.json = q;
         if(errno == ERANGE && (j.get_number() == HUGE_VAL || j.get_number() == -HUGE_VAL))
             return PARSE_NUMBER_TOO_BIG;
         return PARSE_OK;

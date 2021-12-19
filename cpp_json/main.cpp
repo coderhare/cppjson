@@ -9,7 +9,7 @@ int main() {
     Jsonparser::parser p(j);
     p.parse("{\n"
             "  \"name\": \"vue_test\",\n"
-            "  \"version\": \"0.1.0\",\n"
+            "  \"version\": 1.4,\n"
             "  \"private\": true,\n"
             "  \"scripts\": {\n"
             "    \"serve\": \"vue-cli-service serve\",\n"
@@ -49,6 +49,8 @@ int main() {
             "    \"not dead\"\n"
             "  ]\n"
             "}");
+    //p.parse("1.4");
+    //cout << j.get_number() << endl;
     Jsonparser::parser p2(j2);
     //p2.parse("{\"key\":[true, false, {\"1\":true}, {\"2\": false}, \"sfjdls\", [true, {\"a\": false}]]}");
     cout << j.get_type_format() << ' ' << endl;

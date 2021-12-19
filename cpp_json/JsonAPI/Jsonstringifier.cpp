@@ -41,7 +41,7 @@ namespace Jsonstringifier{
             case JSON::JSON_NULL:   stk.put_string( "null"); break;
             case JSON::JSON_FALSE:  stk.put_string("false"); break;
             case JSON::JSON_TRUE:   stk.put_string("true"); break;
-            case JSON::JSON_NUMBER: stk.top -= 32 - sprintf((char*)stk.push( 32), "%.17g", j.get_number()); break;
+            case JSON::JSON_NUMBER: stk.top -= 32 - sprintf((char*)stk.push( 32), "%.16g", j.get_number()); break;
             case JSON::JSON_STRING: stringify_string(j.get_string()); break;
             case JSON::JSON_ARRAY:
                 stk.put_char('[');
