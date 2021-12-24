@@ -7,6 +7,8 @@
 int main() {
     JSON::json j, j2;
     Jsonparser::parser p(j);
+    /** this is a simple json file which I copy from my vue.js project to check if it works well **/
+    
     p.parse("{\n"
             "  \"name\": \"vue_test\",\n"
             "  \"version\": 1.4,\n"
