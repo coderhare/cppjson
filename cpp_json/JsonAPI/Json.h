@@ -26,7 +26,7 @@ namespace JSON{
 
     class json;      /* json is a class with a unique_ptr points to Json_value object */
     using arr = vector<json>;
-    using mem = unordered_map<string, json>;      /* json-object: using unordered_map instead of dynamic array for the O(1) visit */
+    using mem = unordered_map<string, json>;      /* json-object: using std::unordered_map instead of std::vector for the O(1) visit */
     class Json_value {
     public:
         /** constructors and operators **/

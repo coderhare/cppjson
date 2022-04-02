@@ -4,8 +4,10 @@
 
 #include "Jsonparser.h"
 #include <exception>
+#include <fstream>
 
 namespace Jsonparser{
+    using ifstream = std::ifstream;
 
     PARSE_RESULT parser::parse(const char * json){
         PARSE_RESULT ret;
@@ -22,6 +24,19 @@ namespace Jsonparser{
         throw_result(ret);
         free(this->stk.stack);
         return ret;
+    }
+
+    PARSE_RESULT parser::parse_file(const char * filename){
+        string buffer;
+        string str;
+        ifstream is;
+        is.open(filename, std::ios::in);
+        if(!is.is_open()) cout << "file open fail!\n";
+        while(is >> buffer){
+            str += buffer;
+        }
+        cout << str << endl;
+        return parse(str.c_str());
     }
 
     PARSE_RESULT  parser::parse_value(){

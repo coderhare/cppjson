@@ -35,6 +35,7 @@ constexpr int PARSER_STACK_INIT_SIZE = 256;
     public:
         PARSE_RESULT parse(const char * json); /* it is the central part of parse, we use it to call specialized parsers */
         parser(JSON::json & _j):j(_j) /*stk(*(new stack))*/{}
+        PARSE_RESULT parse_file(const char * filename);
     private:
         stack_j stk;
         JSON::json & j;  //avoid arguments pass by value
